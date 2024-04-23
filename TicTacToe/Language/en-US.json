@@ -1,0 +1,17 @@
+﻿{
+  "ru-RU": {
+    "xTurn": "                 🗙 Turn",
+    "oTurn": "                 𐩒 Turn",
+    "startGame": "Start a game or select a player",
+    "xWon": "                 Won X",
+    "oWon": "                 Won O",
+    "draw": "                 Draw",
+    "easy": "Easy",
+    "medate": "Medium",
+    "hard": "Impossible",
+    "playAgainstAFriend": "Play against a friend",
+    "default": "Middle",
+    "restartGame": "RESTART GAME",
+    "lang": "English"
+  }
+}
