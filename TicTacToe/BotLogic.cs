@@ -1,6 +1,7 @@
 ﻿using System;
 using TicTacToe;
 using ButtonBackgroundImage;
+using System.Runtime.InteropServices.ComTypes;
 
 namespace BotLogics
 {
@@ -22,27 +23,31 @@ namespace BotLogics
             bEnableBot = true;
             WaitNSeconds(1);
 
-            //0 = Легко, 1 = Средне, 2 = Невозможно
+            //0 = Легко, 1 = Средне, 2 = Сложно
             if (iType == 0)
             {
-                RunEasyBot(iLastMove, iData, iTurn, bEnableBot);
+                RunEasyBot(iType, iLastMove, iData, iTurn, bEnableBot);
             }
             else if (iType == 1)
             {
-                RunMediumBot(iLastMove, iData, iTurn, bEnableBot);
+                RunMediumBot(iType, iLastMove, iData, iTurn, bEnableBot);
+            }
+            else if (iType == 2)
+            {
+                RunHardBot(iType, iLastMove, iData, iTurn, bEnableBot);
             }
         }
 
-        void RunEasyBot(int iLastMove, int[] iData, int iTurn, bool bEnableBot)
+        void RunEasyBot(int iType, int iLastMove, int[] iData, int iTurn, bool bEnableBot)
         {
             iLastMove = RandomPosition(iData);
             iData[iLastMove] = iTurn;
-            form.Game(iLastMove, iData);
+            form.Game(iType, iLastMove, iData);
             bEnableBot = false;
             form.SetNextTurn();
         }
 
-        void RunMediumBot(int iLastMove, int[] iData, int iTurn, bool bEnableBot)
+        void RunMediumBot(int iType, int iLastMove, int[] iData, int iTurn, bool bEnableBot)
         {
             int iOpponent;
             if (iTurn == -1) iOpponent = 1;
@@ -60,12 +65,12 @@ namespace BotLogics
             }
 
             iData[iLastMove] = iTurn;
-            form.Game(iLastMove, iData);
+            form.Game(iType, iLastMove, iData);
             bEnableBot = false;
             form.SetNextTurn();
         }
 
-        void RunHardBot(int iLastMove, int[] iData, int iTurn, bool bEnableBot)
+        void RunHardBot(int iType, int iLastMove, int[] iData, int iTurn, bool bEnableBot)
         {
             int iOpponent;
             //Проверка на победу и не проигрыш
@@ -256,7 +261,7 @@ namespace BotLogics
             }
 
             iData[iLastMove] = iTurn;
-            form.Game(iLastMove, iData);
+            form.Game(iType, iLastMove, iData);
             bEnableBot = false;
             form.SetNextTurn();
         }
