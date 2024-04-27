@@ -49,17 +49,17 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>npNg3/aZNaJwwBZXfje6/DJ8REzlSCy+cr6YlNO8PoA=</dsig:DigestValue>
+        <dsig:DigestValue>8ISsYvNBYcOZ6bgp6wLPfaedXtGEB5inVLtfRtsG5eg=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="TicTacToe.exe.config" size="184">
+  <file name="TicTacToe.exe.config" size="186">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>FihlZtVNgcNyH37Pf0Jtll3jZOm+L55ijXNjtoS2/mo=</dsig:DigestValue>
+      <dsig:DigestValue>1NgAxCSw4ibTXzWVy7D6Rw60Qih4Dn37KvGhG5Ora/s=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>

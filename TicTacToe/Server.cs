@@ -6,36 +6,10 @@ using System.Threading.Tasks;
 using System.Net;
 using System.Net.Sockets;
 using System.Windows.Forms;
+using TicTacToe;
 
 namespace Servers
 {
-    public class Buttons
-    {
-        public static Button Button1;
-        public static Button Button2;
-        public static Button Button3;
-        public static Button Button4;
-        public static Button Button5;
-        public static Button Button6;
-        public static Button Button7;
-        public static Button Button8;
-        public static Button Button9;
-
-        public Buttons(Button button1, Button button2, Button button3, Button button4, Button button5, Button button6, Button button7, Button button8, Button button9)
-        {
-            Button1 = button1;
-            Button2 = button2;
-            Button3 = button3;
-            Button4 = button4;
-            Button5 = button5;
-            Button6 = button6;
-            Button7 = button7;
-            Button8 = button8;
-            Button9 = button9;
-
-        }
-    }
-
     public class Server
     {
         public static Socket _socket;
@@ -53,10 +27,12 @@ namespace Servers
             _socket.Bind(new IPEndPoint(IPAddress.Parse(ipAdress.ToString()), port));
             serverCreated = true;
             MessageBox.Show("Ожидание второго игрока", "Сервер создан", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            Form1.iType = 4;
+            Form1.Type = 1;
         }
-        public static void Close(int port)
+        public static void Close()
         {
-            _socket.Close(port);
+            _socket.Close();
         }
         public static void Listen(int backlog)
         {

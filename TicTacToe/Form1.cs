@@ -3,6 +3,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using BotLogics;
 using ButtonBackgroundImage;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TrayNotify;
 
 namespace TicTacToe
 {
@@ -17,7 +18,7 @@ namespace TicTacToe
         /// <para>3|4|5</para>
         /// <para>6|7|8</para>
         /// </summary>
-        public int[] iData = new int[9];
+        public static int[] iData = new int[9];
 
         //-1 = X, 1 = O, 0 = Стоп
         public int iTurn = -1;
@@ -25,13 +26,17 @@ namespace TicTacToe
         //0 = Легко, 1 = Средне, 2 = Невозможно, 3 = Играть против друга
         public static int iType = 1;
 
+        public static int Type;
+
         public bool bEnableBot = false;
 
         //Сохранение позиции последнего хода
-        public int iLastMove = -1;
+        public static int iLastMove = -1;
 
         public int iXScores = 0;
         public int iOScores = 0;
+
+        public ClientServer clientServer = new ClientServer();
 
         public Form1()
         {
@@ -73,26 +78,26 @@ namespace TicTacToe
         {
             Levels.Text = "Играть против друга";
             RestartGame();
-            this.Hide();
-            ClientServer clientServer = new ClientServer();
+            this.Close();
             clientServer.Show();
         }
 
         public void Game(int iType, int iLastMove, int[] iData)
         {
+            var background = new ButtonBackground();
+
             if (iType == 0 || iType == 1 || iType == 2 || iType == 3)
             {
-                var background = new ButtonBackground();
                 background.ChangeButtonBackgroundImage(iLastMove, iData);
             }
-            else if (iType == 5)
+            else if (iType == 4)
             {
-                
+                ClCheck();
             }
         }
 
         public void RestartGame()
-        {;
+        {
             //Сбросить данные
             for (int i = 0; i <= 8; i++)
             {

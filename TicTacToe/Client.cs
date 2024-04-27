@@ -55,14 +55,12 @@ namespace Clients
             if (_socket.Connected)
             {
                 MessageBox.Show("Вы подключились к серверу", "Подключен к серверу", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                 buffer = new byte[1024];
                 _socket.BeginReceive(buffer, 0, buffer.Length, SocketFlags.None, RecieveCallBack, null);
-                ClientServer clientServer = new ClientServer();
-                clientServer.Hide();
-                Form1 form1 = new Form1();
-                form1.Show();
+                Form1.iType = 4;
+                Form1.Type = 2;
             }
-
         }
         public static void RecieveCallBack(IAsyncResult result)
         {

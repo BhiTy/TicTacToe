@@ -4,7 +4,7 @@
   <description asmv2:publisher="TicTacToe" asmv2:product="TicTacToe" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <deployment install="true" mapFileExtensions="true" />
   <compatibleFrameworks xmlns="urn:schemas-microsoft-com:clickonce.v2">
-    <framework targetVersion="4.8" profile="Full" supportedRuntime="4.0.30319" />
+    <framework targetVersion="4.6.1" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
     <dependentAssembly dependencyType="install" codebase="TicTacToe.exe.manifest" size="3644">
@@ -14,7 +14,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>hkwBpysmLi+3mLYToduLUOj34IoyJ3kyDysjEoZTLPI=</dsig:DigestValue>
+        <dsig:DigestValue>OBHuBVuJ3kpIR2S3Jbq2WdW0PLC2WFZiehSBuxzuGuY=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

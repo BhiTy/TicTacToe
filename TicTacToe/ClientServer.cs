@@ -9,12 +9,13 @@ using System.Windows.Forms;
 using Servers;
 using Clients;
 using TicTacToe;
+using Games;
+using ButtonBackgroundImage;
 
 namespace TicTacToe
 {
     public partial class ClientServer : Form
     {
-
         public ClientServer()
         {
             InitializeComponent();
@@ -43,15 +44,13 @@ namespace TicTacToe
 
         private void Back_Click(object sender, EventArgs e)
         {
-            if(Convert.ToBoolean(Servers.Server.clientSocket))
-                Servers.Server.Close(Convert.ToInt32(portBox.Text));
-            else
+            if (Servers.Server.serverCreated)
             {
-                this.Close();
-                Form1 form = new Form1();
-                form.Show();
+                Servers.Server.Close();
             }
-
+            this.Close();
+            Form1 form = new Form1();
+            form.Show();
         }
 
         private void Local_Click(object sender, EventArgs e)
@@ -83,7 +82,7 @@ namespace TicTacToe
                 Servers.Server.Bind(ipBox.Text.ToString(), Convert.ToInt32(portBox.Text));
                 Servers.Server.Listen(500);
                 Servers.Server.Accept();
-                TicTacToe.Form1.iType = 4;
+                Check1();
             }
         }
 
@@ -100,10 +99,25 @@ namespace TicTacToe
             port.Visible = true;
             Connect.Visible = true;
         }
-
+        public void Check1()
+        {
+            var background = new ButtonBackground();
+            Form1 clientServer1 = new Form1();
+            if (Form1.Type == 1)
+            {
+                this.Close();
+                clientServer1.Show();
+            }
+            else if (Form1.Type == 2)
+            {
+                this.Close();
+                clientServer1.Show();
+            }
+        }
         private void Connect_Click(object sender, EventArgs e)
         {
             Clients.Client.Connect(ipBox.Text.ToString(), Convert.ToInt32(portBox.Text));
+            Check1();
         }
 
         Point lastPoint;
